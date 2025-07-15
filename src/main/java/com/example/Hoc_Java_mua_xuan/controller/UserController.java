@@ -40,8 +40,9 @@ public class UserController {
             @RequestParam String email,
             @RequestParam String password,
             @RequestParam String fullName,
-            @RequestParam String address,
-            @RequestParam String phone
+            @RequestParam(required = false) String address,
+            @RequestParam(required = false) String phone
+
     ) {
         User user = new User();
         user.setEmail(email);
