@@ -61,7 +61,7 @@ public class UserController {
     model.addAttribute("user", user);
     return "admin/user/edit";
 }
-@PostMapping("/update/{id}")
+@PutMapping("/update/{id}")
 public String updateUser(
         @PathVariable("id") Long id,
         @RequestParam String email,
