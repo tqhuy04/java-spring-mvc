@@ -1,8 +1,14 @@
+<!-- sidebar.jsp -->
+<!-- Cột sidebar bên trái -->
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<div class="d-flex flex-column bg-light p-3" style="width: 250px; height: 100vh;">
-    <h5 class="mb-4">Quản trị</h5>
-    <ul class="nav flex-column">
-        <li class="nav-item"><a href="${pageContext.request.contextPath}/admin/user" class="nav-link">Người dùng</a></li>
-        <li class="nav-item"><a href="${pageContext.request.contextPath}/admin/role" class="nav-link">Vai trò</a></li>
+<div class="col-md-3 bg-light vh-100 border-end">
+    <h5 class="p-3">Menu Quản trị</h5>
+    <ul class="nav flex-column px-3">
+        <li class="nav-item mb-2"><a href="/dashboard" class="nav-link">Bảng điều khiển</a></li>
+        <li class="nav-item mb-2"><a href="/admin/user" class="nav-link">Quản lý người dùng</a></li>
+        <li class="nav-item mb-2"><a href="/admin/product" class="nav-link">Quản lý sản phẩm</a></li>
+        <li class="nav-item mb-2"><a href="/admin/order" class="nav-link">Quản lý đơn hàng</a></li>
+        <li class="nav-item mt-3"><a href="/logout" class="nav-link text-danger">Đăng xuất</a></li>
     </ul>
 </div>
+

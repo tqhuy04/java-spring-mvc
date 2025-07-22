@@ -18,10 +18,10 @@ public class AuthController {
         this.userService = userService;
     }
 
-    // ======= Trang đăng nhập =======
+    // Trang đăng nhập
     @GetMapping("/login")
     public String showLoginForm() {
-        return "auth/login"; // → /WEB-INF/view/auth/login.jsp
+        return "auth/login";
     }
 
     @PostMapping("/login")
@@ -39,13 +39,18 @@ public class AuthController {
         }
 
         session.setAttribute("user", user);
-        return "redirect:/dashboard";
+
+        if ("admin".equalsIgnoreCase(user.getRole())) {
+            return "redirect:/dashboard";
+        } else {
+            return "redirect:/product";
+        }
     }
 
-    // ======= Trang đăng ký =======
+    // Trang đăng ký
     @GetMapping("/register")
     public String showRegisterForm() {
-        return "auth/register"; // → /WEB-INF/view/auth/register.jsp
+        return "auth/register";
     }
 
     @PostMapping("/register")
@@ -77,7 +82,7 @@ public class AuthController {
         return "redirect:/auth/login";
     }
 
-    // ======= Đăng xuất =======
+    // Đăng xuất
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();

@@ -13,17 +13,13 @@ public class DashboardController {
         User user = (User) session.getAttribute("user");
 
         if (user == null) {
-            System.out.println("Không có user trong session → redirect về login");
             return "redirect:/auth/login";
         }
 
-        System.out.println("Truy cập dashboard với role: " + user.getRole());
-
-        // Trả về file JSP theo role
         if ("admin".equalsIgnoreCase(user.getRole())) {
-            return "admin/dashboard";  // → /WEB-INF/view/admin/dashboard.jsp
-        } else {
-            return "client/dashboard"; // → /WEB-INF/view/client/dashboard.jsp
+            return "admin/dashboard";
         }
+
+        return "redirect:/product";
     }
 }
